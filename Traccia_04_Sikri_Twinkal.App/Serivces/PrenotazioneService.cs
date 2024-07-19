@@ -15,8 +15,8 @@ namespace Traccia_04_Sikri_Twinkal.App.Serivces
 
         public void addPrenotazione(Prenotazione prenotazione)
         {
-            _prenotazioneRepository.Aggiungi(prenotazione).Wait();
-            _prenotazioneRepository.Save().Wait();
+            _prenotazioneRepository.Aggiungi(prenotazione);
+            _prenotazioneRepository.Save();
         }
 
         public List<Prenotazione> GetPrenotazioni(DateOnly DataInizio, DateOnly DataFine, int RisorsaId)

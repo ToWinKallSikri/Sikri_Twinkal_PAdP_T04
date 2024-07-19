@@ -7,6 +7,12 @@ namespace Traccia_04_Sikri_Twinkal.App.Serivces
     public class UtenteService : IUtenteService
     {
         private readonly UtenteRepository _utenteRepository;
+
+        public UtenteService(UtenteRepository utenteRepository)
+        {
+            _utenteRepository = utenteRepository;
+        }
+
         public List<Utente> GetUtenti()
         {
             return new List<Utente>();
@@ -20,7 +26,7 @@ namespace Traccia_04_Sikri_Twinkal.App.Serivces
 
         public void AddUtente(Utente utente)
         {
-            _utenteRepository.Aggiungi(utente).Wait();
+            _utenteRepository.Aggiungi(utente);
         }
     }
 }

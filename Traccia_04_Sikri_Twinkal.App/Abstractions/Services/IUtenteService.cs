@@ -5,7 +5,7 @@ namespace Traccia_04_Sikri_Twinkal.App.Abstractions.Services
     public interface IUtenteService
     {
         List<Utente> GetUtenti();
-        Utente GetUtenteById(int id);
+        Utente? GetUtenteById(int id);
         void AddUtente(Utente utente);
 
     }
