@@ -1,23 +1,32 @@
 ﻿using Traccia_04_Sikri_Twinkal.App.Abstractions.Services;
 using Traccia_04_Sikri_Twinkal.Models.Entities;
+using Traccia_04_Sikri_Twinkal.Models.Repositories;
 
 namespace Traccia_04_Sikri_Twinkal.App.Serivces
 {
     public class PrenotazioneService : IPrenotazioneService
-    {
-        public void addPrenotazione(Prenotazione prenotazione)
+    {   
+        private readonly PrenotazioneRepository _prenotazioneRepository;
+        
+        public PrenotazioneService(PrenotazioneRepository prenotazioneRepository)
         {
-            throw new NotImplementedException();
+            _prenotazioneRepository = prenotazioneRepository;
         }
 
-        public List<Prenotazione> GetPrenotazione(DateOnly DataInizio, DateOnly DataFine, int RisorsaId)
+        public void addPrenotazione(Prenotazione prenotazione)
         {
-            throw new NotImplementedException();
+            _prenotazioneRepository.Aggiungi(prenotazione).Wait();
+            _prenotazioneRepository.Save().Wait();
+        }
+
+        public List<Prenotazione> GetPrenotazioni(DateOnly DataInizio, DateOnly DataFine, int RisorsaId)
+        {
+            return _prenotazioneRepository.GetPrenotazioni(DataInizio, DataFine, RisorsaId).ToList();
         }
 
         public List<Prenotazione> GetPrenotazioni()
         {
-            throw new NotImplementedException();
+            return new List<Prenotazione>();
         }
     }
 }

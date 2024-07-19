@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Traccia_04_Sikri_Twinkal.Models.Configurations
 {
-    public class TipologiaRisorsConfiguration : IEntityTypeConfiguration<TipologiaRisorsa>
+    public class TipologiaRisorsaConfiguration : IEntityTypeConfiguration<TipologiaRisorsa>
     {
         public void Configure(EntityTypeBuilder<TipologiaRisorsa> builder)
         {

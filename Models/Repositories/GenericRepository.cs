@@ -17,33 +17,43 @@ namespace Traccia_04_Sikri_Twinkal.Models.Repositories
             _ctx = ctx;
         }
 
-        public void Aggiungi(T entity)
+        public async Task Aggiungi(T entity)
         {
-            _ctx.Set<T>().Add(entity);
+            if (entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
+            var Id = Ottieni(entity.GetType().GetProperty(entity.GetType().Name + "Id").GetValue(entity));  
+            if (Id != null)
+            {
+                throw new InvalidOperationException("L'entità è già presente nel database");
+            }
+            await _ctx.Set<T>().AddAsync(entity);
         }
 
-        public void Modifica(T entity)
+        public async Task Modifica(T entity)
         {
             _ctx.Entry(entity).State = EntityState.Modified;
+            await Task.CompletedTask;
         }
 
-        public virtual T? Ottieni(object id)
+        public async Task<T?> Ottieni(object id)
         {
-            return _ctx.Set<T>()
-                .Find(id);
+            return await _ctx.Set<T>()
+                .FindAsync(id);
 
         }
 
-        public void Elimina(object id)
+        public async Task Elimina(object id)
         {
-            var entity = Ottieni(id);
+            var entity = await Ottieni(id);
             if(entity != null)
                 _ctx.Entry(entity).State = EntityState.Deleted;
         }
 
-        public void Save()
+        public async Task Save()
         {
-            _ctx.SaveChanges();
+            await _ctx.SaveChangesAsync();
         }
 
     }

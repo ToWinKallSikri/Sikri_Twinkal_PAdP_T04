@@ -6,15 +6,10 @@ namespace Traccia_04_Sikri_Twinkal.App.Abstractions.Services
     {
         List<Risorsa> GetRisorse();
 
-        List<Risorsa> GetRisorsa(int RisorsaId, string Tipologia);
+        Risorsa? GetRisorsa(object RisorsaId);
 
         void addRisorsa(Risorsa ris);
 
-        void getRisorsa(int RisorsaId);
-
         bool risorsaExists(int RisorsaId);
-
-
-
     }
 }

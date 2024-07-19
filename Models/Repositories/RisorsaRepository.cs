@@ -9,7 +9,7 @@ using Traccia_04_Sikri_Twinkal.Models.Entities;
 
 namespace Traccia_04_Sikri_Twinkal.Models.Repositories
 {
-    internal class RisorsaRepository : GenericRepository<Risorsa>
+    public class RisorsaRepository : GenericRepository<Risorsa>
     {
         public RisorsaRepository(ServizioDiPrenotazioneContext ctx) : base(ctx) {}
 

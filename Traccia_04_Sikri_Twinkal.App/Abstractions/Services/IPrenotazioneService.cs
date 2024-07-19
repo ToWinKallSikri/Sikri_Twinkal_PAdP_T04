@@ -6,8 +6,7 @@ namespace Traccia_04_Sikri_Twinkal.App.Abstractions.Services
     {
         List<Prenotazione> GetPrenotazioni();
 
-        List<Prenotazione> GetPrenotazione(DateOnly DataInizio, DateOnly DataFine, int RisorsaId);
-
+        List<Prenotazione> GetPrenotazioni(DateOnly DataInizio, DateOnly DataFine, int RisorsaId);
         void addPrenotazione(Prenotazione prenotazione);
         
     }
