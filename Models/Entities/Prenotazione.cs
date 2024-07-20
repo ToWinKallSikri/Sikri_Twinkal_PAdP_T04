@@ -14,6 +14,6 @@ namespace Traccia_04_Sikri_Twinkal.Models.Entities
         public virtual Risorsa Risorsa { get; set; } = null!;
         public int PrenotazioneId { get; set; }
         public int UtenteId { get; set; }
-        public int RisorsaId { get; set; }
+        public int? RisorsaId { get; set; }
     }
 }
