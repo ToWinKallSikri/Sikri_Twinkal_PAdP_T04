@@ -2,7 +2,7 @@
 using Traccia_04_Sikri_Twinkal.App.Models.Requests;
 using Traccia_04_Sikri_Twinkal.Models.Context;
 
-namespace Traccia_04_Sikri_Twinkal.App.Models.Validators
+namespace Traccia_04_Sikri_Twinkal.App.Validators
 {
     public class GetDisponibilitaRequestValidator : AbstractValidator<GetDisponibilitaRequest>
 
@@ -12,7 +12,7 @@ namespace Traccia_04_Sikri_Twinkal.App.Models.Validators
             RuleFor(x => x.DataInizio)
                 .NotNull().WithMessage("Data Inizio prenotazione obbligatoria")
                 .Must(date => DataAccettabile(date)).WithMessage("Data non valida");
-                
+
             RuleFor(x => x.DataFine)
                 .NotNull().WithMessage("Data Fine prenotazione obbligatoria")
                 .Must(date => DataAccettabile(date)).WithMessage("Data non valida")
@@ -29,14 +29,14 @@ namespace Traccia_04_Sikri_Twinkal.App.Models.Validators
                     .Must(req => RisorsaDisponibile(req, dbContext))
                     .WithMessage("La risorsa non è disponibile per le date selezionate.");
             });
-           
+
 
         }
 
         public bool DataAccettabile(DateOnly? data)
         {
             return data != null && data >= DateOnly.FromDateTime(DateTime.Now);
-        }   
+        }
 
         public bool RisorsaDisponibile(GetDisponibilitaRequest req, ServizioDiPrenotazioneContext dbContext)
         {
@@ -44,9 +44,9 @@ namespace Traccia_04_Sikri_Twinkal.App.Models.Validators
             {
                 return true;
             }
-            return !dbContext.Prenotazioni.Any(x => x.RisorsaId  == req.RisorsaId
+            return !dbContext.Prenotazioni.Any(x => x.RisorsaId == req.RisorsaId
                                                  && x.DataInizio >= req.DataInizio
-                                                 && x.DataFine   <= req.DataFine);
+                                                 && x.DataFine <= req.DataFine);
         }
     }
 }

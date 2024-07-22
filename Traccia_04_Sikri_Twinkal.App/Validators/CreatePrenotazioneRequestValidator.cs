@@ -1,9 +1,8 @@
 ﻿using FluentValidation;
-using Microsoft.EntityFrameworkCore;
 using Traccia_04_Sikri_Twinkal.App.Models.Requests;
 using Traccia_04_Sikri_Twinkal.Models.Context;
 
-namespace Traccia_04_Sikri_Twinkal.App.Models.Validators
+namespace Traccia_04_Sikri_Twinkal.App.Validators
 {
     public class CreatePrenotazioneRequestValidator : AbstractValidator<CreatePrenotazioneRequest>
     {
@@ -21,9 +20,9 @@ namespace Traccia_04_Sikri_Twinkal.App.Models.Validators
 
             RuleFor(x => x)
             .Must(req =>
-                myDbContext.Prenotazioni.Any(x => x.RisorsaId  == req.RisorsaId
+                myDbContext.Prenotazioni.Any(x => x.RisorsaId == req.RisorsaId
                                                && x.DataInizio >= req.DataInizio
-                                               && x.DataFine   <= req.DataFine)
+                                               && x.DataFine <= req.DataFine)
                 )
                 .WithMessage("La risorsa non è disponibile per le date selezionate.");
 
