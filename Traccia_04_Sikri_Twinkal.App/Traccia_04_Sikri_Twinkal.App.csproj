@@ -14,8 +14,8 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.0" />
   </ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\Models\Traccia_04_Sikri_Twinkal.Models.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Traccia_04_Sikri_Twinkal.Models\Traccia_04_Sikri_Twinkal.Models.csproj" />
+  </ItemGroup>
 </Project>
 

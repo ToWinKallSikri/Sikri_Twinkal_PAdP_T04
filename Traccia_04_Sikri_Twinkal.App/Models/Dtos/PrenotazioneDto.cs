@@ -9,7 +9,7 @@ namespace Traccia_04_Sikri_Twinkal.App.Models.Dtos
         public PrenotazioneDto(Prenotazione prenotazione)
         {
             Id = prenotazione.PrenotazioneId;
-            Risorsa = prenotazione.RisorsaId;
+            RisorsaId = prenotazione.RisorsaId;
             DataInizio = prenotazione.DataInizio;
             DataFine = prenotazione.DataFine;
         }
@@ -17,6 +17,6 @@ namespace Traccia_04_Sikri_Twinkal.App.Models.Dtos
         public int Id { get; set; }
         public DateOnly DataInizio { get; set; }
         public DateOnly DataFine { get; set; }
-        public int Risorsa { get; set; }
+        public int? RisorsaId { get; set; }
     }
 }

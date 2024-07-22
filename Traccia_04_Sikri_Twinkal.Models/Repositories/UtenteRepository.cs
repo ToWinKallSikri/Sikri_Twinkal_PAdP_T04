@@ -12,7 +12,7 @@ namespace Traccia_04_Sikri_Twinkal.Models.Repositories
     public class UtenteRepository : GenericRepository<Utente>
     {
         public UtenteRepository(ServizioDiPrenotazioneContext ctx) : base(ctx) { }
-            public Utente? Ottieni(object id)
+            public override Utente? Ottieni(object id)
         {
             return _ctx.Utenti
                 .Include(u => u.Prenotazioni)
