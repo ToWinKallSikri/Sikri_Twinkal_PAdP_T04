@@ -4,10 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Traccia_04_Sikri_Twinkal.Web", "Traccia_04_Sikri_Twinkal\Traccia_04_Sikri_Twinkal.Web.csproj", "{8D1AF828-9C7A-45AE-978D-BAA73DFEFD02}"
+	ProjectSection(ProjectDependencies) = postProject
+		{179061DE-1E84-4910-80CE-E38857E234C5} = {179061DE-1E84-4910-80CE-E38857E234C5}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Traccia_04_Sikri_Twinkal.Models", "Models\Traccia_04_Sikri_Twinkal.Models.csproj", "{67B25A55-4C02-4691-961D-C2D533E5E3BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traccia_04_Sikri_Twinkal.App", "Traccia_04_Sikri_Twinkal.App\Traccia_04_Sikri_Twinkal.App.csproj", "{179061DE-1E84-4910-80CE-E38857E234C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Traccia_04_Sikri_Twinkal.App", "Traccia_04_Sikri_Twinkal.App\Traccia_04_Sikri_Twinkal.App.csproj", "{179061DE-1E84-4910-80CE-E38857E234C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
