@@ -1,4 +1,5 @@
-﻿using Traccia_04_Sikri_Twinkal.Models.Entities;
+﻿using Traccia_04_Sikri_Twinkal.App.Models.Dtos;
+using Traccia_04_Sikri_Twinkal.Models.Entities;
 
 namespace Traccia_04_Sikri_Twinkal.App.Abstractions.Services
 {
@@ -8,7 +9,10 @@ namespace Traccia_04_Sikri_Twinkal.App.Abstractions.Services
 
         Risorsa? GetRisorsa(object RisorsaId);
 
-        void addRisorsa(Risorsa ris);
+        List<Risorsa> GetRisorse(int from, int num, string? name, out int totalNum);
+
+        void AddRisorsa(Risorsa ris);
+        List<RisorsaDto> GetDisponibilita(int from, int num, DateOnly dataInizio, DateOnly dataFine, int? codiceRisorsa, out int totalItems);
 
         bool risorsaExists(int RisorsaId);
     }

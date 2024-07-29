@@ -34,7 +34,23 @@ namespace Traccia_04_Sikri_Twinkal.Models.Repositories
         {
             return _ctx.Utenti.FirstOrDefault(u => u.Email == email);
         }
+        public List<Utente> GetUtenti(int from, int num, string? searchTerm, out int totalNum)
+        {
+            var query = _ctx.Utenti.AsQueryable();
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                searchTerm = searchTerm.ToLower();
+                query = query.Where(u => u.Nome.ToLower().Contains(searchTerm) || u.Cognome.ToLower().Contains(searchTerm));
+            }
 
+            totalNum = query.Count();
+            return
+                query
+                .OrderBy(o => o.Cognome)
+                .Skip(from)
+                .Take(num)
+                .ToList();
+        }
     }
 }
 

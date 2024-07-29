@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,19 +13,21 @@ namespace Traccia_04_Sikri_Twinkal.Models.Repositories
     {
         public PrenotazioneRepository(ServizioDiPrenotazioneContext ctx) : base(ctx) {}
 
-        public IEnumerable<Prenotazione> GetPrenotazioni(DateOnly inizio, DateOnly fine, int RisorsaId)
+        public List<Prenotazione> GetPrenotazioni(int from, int num, string? nomeRisorsa, out int totalNum)
         {
-            if (inizio < DateOnly.FromDateTime(DateTime.Now))
+            var query = _ctx.Prenotazioni.Include(p => p.Risorsa).AsQueryable();
+
+            if (!string.IsNullOrEmpty(nomeRisorsa))
             {
-                throw new ArgumentException("La data di inizio deve essere maggiore o uguale alla data odierna");
+                query = query.Where(w => w.Risorsa.Nome.ToLower().Contains(nomeRisorsa.ToLower()));
             }
-            if (inizio > fine)
-            {
-                throw new ArgumentException("La data di inizio deve essere minore della data di fine");
-            }
-            
-            return _ctx.Prenotazioni
-                .Where(p => p.DataInizio < fine && p.DataFine > inizio && p.RisorsaId == RisorsaId);
+
+            totalNum = query.Count();
+
+            return query.OrderBy(o => o.PrenotazioneId)
+                        .Skip(from)
+                        .Take(num)
+                        .ToList();
         }
     }
 }

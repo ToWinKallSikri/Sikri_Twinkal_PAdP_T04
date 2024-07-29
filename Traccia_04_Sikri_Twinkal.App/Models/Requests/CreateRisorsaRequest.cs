@@ -6,14 +6,14 @@ namespace Traccia_04_Sikri_Twinkal.App.Models.Requests
     {
         public int IdRisorsa { get; set; }
         public string Nome { get; set; }
-        public string Tipologia { get; set; }
+        public int Tipologia { get; set; }
 
         public Risorsa ToEntity()
         {
             var risorsa = new Risorsa();
             risorsa.RisorsaId = IdRisorsa;
             risorsa.Nome = Nome;
-            risorsa.Tipologia = Tipologia;
+            risorsa.TipologiaRisorsaId = Tipologia;
             return risorsa;
         }
     }

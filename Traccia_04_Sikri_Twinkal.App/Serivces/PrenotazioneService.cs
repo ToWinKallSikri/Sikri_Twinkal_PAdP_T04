@@ -19,14 +19,14 @@ namespace Traccia_04_Sikri_Twinkal.App.Serivces
             _prenotazioneRepository.Save();
         }
 
-        public List<Prenotazione> GetPrenotazioni(DateOnly DataInizio, DateOnly DataFine, int RisorsaId)
-        {
-            return _prenotazioneRepository.GetPrenotazioni(DataInizio, DataFine, RisorsaId).ToList();
-        }
-
         public List<Prenotazione> GetPrenotazioni()
         {
             return new List<Prenotazione>();
+        }
+
+        public List<Prenotazione> GetPrenotazioni(int from, int num, string? name, out int totalNum)
+        {
+            return _prenotazioneRepository.GetPrenotazioni(from, num, name, out totalNum);
         }
     }
 }

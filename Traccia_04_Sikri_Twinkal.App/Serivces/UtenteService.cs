@@ -28,5 +28,10 @@ namespace Traccia_04_Sikri_Twinkal.App.Serivces
         {
             _utenteRepository.Aggiungi(utente);
         }
+
+        public List<Utente> GetUtenti(int from, int num, string? name, out int totalNum)
+        {
+            return _utenteRepository.GetUtenti(from, num, name, out totalNum);
+        }
     }
 }

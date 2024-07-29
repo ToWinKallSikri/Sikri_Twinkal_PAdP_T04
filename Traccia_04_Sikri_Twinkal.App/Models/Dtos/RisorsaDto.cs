@@ -10,11 +10,11 @@ namespace Traccia_04_Sikri_Twinkal.App.Models.Dtos
         {
             Id = risorsa.RisorsaId;
             Nome = risorsa.Nome;
-            Tipologia = risorsa.Tipologia;
+            Tipologia = risorsa.TipologiaRisorsaId;
         }
 
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string Tipologia { get; set; }
+        public int Tipologia { get; set; }
     }
 }

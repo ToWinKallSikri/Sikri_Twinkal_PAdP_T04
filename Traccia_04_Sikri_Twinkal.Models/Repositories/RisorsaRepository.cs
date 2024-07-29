@@ -32,5 +32,22 @@ namespace Traccia_04_Sikri_Twinkal.Models.Repositories
         {
             return _ctx.Risorse.Where(r => Disponibile(r.RisorsaId, inizio, fine));
         }
+
+        public List<Risorsa> GetRisorse(int from, int num, string? name, out int totalNum)
+        {
+            var query = _ctx.Risorse.AsQueryable();
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(w => w.Nome.ToLower().Contains(name.ToLower()));
+            }
+
+            totalNum = query.Count();
+            return
+                query
+                .OrderBy(o => o.Nome)
+                .Skip(from)
+                .Take(num)
+                .ToList();
+        }
     }
 }

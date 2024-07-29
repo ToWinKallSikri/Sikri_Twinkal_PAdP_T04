@@ -10,7 +10,7 @@ namespace Traccia_04_Sikri_Twinkal.Models.Entities
     {
         public int RisorsaId { get; set; }
         public string Nome { get; set; } = string.Empty;
-        public string Tipologia { get; set; } = string.Empty;
+        public int TipologiaRisorsaId { get; set; }
         public virtual IEnumerable<Prenotazione> Prenotazioni { get; set; } = null!;
     }
 }

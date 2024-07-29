@@ -12,6 +12,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Traccia_04_Sikri_Twinkal.Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Traccia_04_Sikri_Twinkal.App", "Traccia_04_Sikri_Twinkal.App\Traccia_04_Sikri_Twinkal.App.csproj", "{179061DE-1E84-4910-80CE-E38857E234C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traccia_04_Sikri_Twinkal.Abstractions", "Traccia_04_Sikri_Twinkal.Abstractions\Traccia_04_Sikri_Twinkal.Abstractions.csproj", "{4E98306E-DD4D-4598-8FF1-21612EA1C054}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traccia_04_Sikri_Twinkal.Test", "Traccia_04_Sikri_Twinkal.Test\Traccia_04_Sikri_Twinkal.Test.csproj", "{352EE3FE-2F5B-431B-B190-D3C44D05C985}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +34,14 @@ Global
 		{179061DE-1E84-4910-80CE-E38857E234C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{179061DE-1E84-4910-80CE-E38857E234C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{179061DE-1E84-4910-80CE-E38857E234C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E98306E-DD4D-4598-8FF1-21612EA1C054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E98306E-DD4D-4598-8FF1-21612EA1C054}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E98306E-DD4D-4598-8FF1-21612EA1C054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E98306E-DD4D-4598-8FF1-21612EA1C054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{352EE3FE-2F5B-431B-B190-D3C44D05C985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{352EE3FE-2F5B-431B-B190-D3C44D05C985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{352EE3FE-2F5B-431B-B190-D3C44D05C985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{352EE3FE-2F5B-431B-B190-D3C44D05C985}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
