@@ -13,7 +13,7 @@ namespace Traccia_04_Sikri_Twinkal.App.Serivces
             _prenotazioneRepository = prenotazioneRepository;
         }
 
-        public void addPrenotazione(Prenotazione prenotazione)
+        public void AddPrenotazione(Prenotazione prenotazione)
         {
             _prenotazioneRepository.Aggiungi(prenotazione);
             _prenotazioneRepository.Save();

@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Traccia_04_Sikri_Twinkal.Test.Orm;
+using Traccia_04_Sikri_Twinkal.Abstractions;
 
-namespace Traccia_04_Sikri_Twinkal.Test
+
+    List<IExample> examples = new List<IExample>();
+
+
+    //examples.Add(new Repository());
+
+    examples.Add(new EntityFramework());
+
+//examples.Add(new Linq()); 
+
+
+foreach (var example in examples)
 {
-    internal class Program
-    {
-    }
+    await example.RunExampleAsync();
 }
+
+Console.ReadLine();
+
