@@ -16,10 +16,8 @@ namespace Traccia_04_Sikri_Twinkal.App.Validators
                 .MaximumLength(50).WithMessage("Nome troppo lungo");
 
             RuleFor(x => x.Tipologia)
-                .NotNull().WithMessage("Dichiarare tipologia")
-                .MinimumLength(4).WithMessage("Il minimo è 4 caratteri")
-                .MaximumLength(20).WithMessage("Limite caratteri raggiunto");
-             
+                .InclusiveBetween(1, 5).WithMessage("IdRisorsaTipologia deve essere tra 1 e 5.");
+
             RuleFor(x => x.IdRisorsa)
                .NotNull().WithMessage("Id Risorsa obbligatorio")
                .GreaterThan(0).WithMessage("Id Risorsa deve essere maggiore di 0");
