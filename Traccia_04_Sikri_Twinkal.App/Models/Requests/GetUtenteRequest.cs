@@ -5,5 +5,6 @@
         public int PageSize { get; set; }
         public int PageNumber { get; set; }
         public int? UtenteId { get; set; }
+        public string Name { get; set; } = string.Empty;
     }
 }

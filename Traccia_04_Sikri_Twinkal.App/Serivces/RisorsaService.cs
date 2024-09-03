@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Traccia_04_Sikri_Twinkal.App.Abstractions.Services;
 using Traccia_04_Sikri_Twinkal.Models.Repositories;
 using Traccia_04_Sikri_Twinkal.Models.Entities;
@@ -25,6 +21,7 @@ namespace Traccia_04_Sikri_Twinkal.App.Serivces
         public void AddRisorsa(Risorsa ris)
         {
             _risorsaRepository.Aggiungi(ris);
+            _risorsaRepository.Save();
 
         }
 
@@ -53,11 +50,9 @@ namespace Traccia_04_Sikri_Twinkal.App.Serivces
         {
             from = Math.Max(from, 0);
 
-            codiceRisorsa = codiceRisorsa == 0 ? null : codiceRisorsa;
-
             var query = _context.Risorse
                 .Include(r => r.Prenotazioni)
-                .Where(r => !r.Prenotazioni.Any(p => (p.DataInizio < dataFine && p.DataFine > dataInizio)));
+                .Where(r => !r.Prenotazioni.Any(p => p.DataInizio < dataFine && p.DataFine > dataInizio));
 
             if (codiceRisorsa.HasValue)
             {
@@ -65,12 +60,10 @@ namespace Traccia_04_Sikri_Twinkal.App.Serivces
             }
 
             totalItems = query.Count();
-
             var risorse = query
-                .OrderBy(r => r.Nome)
                 .Skip(from * num)
                 .Take(num)
-                .ToList();
+                .OrderBy(r => r.Nome);
 
             var risorseDto = risorse.Select(r => new RisorsaDto
             {
@@ -81,6 +74,16 @@ namespace Traccia_04_Sikri_Twinkal.App.Serivces
             }).ToList();
 
             return risorseDto;
+        }
+
+        public bool CreaTipologia(string nomeTipologia, out int id)
+        {
+            id = 0;
+            if (string.IsNullOrEmpty(nomeTipologia)) {
+                return false;
+            }
+            id = _risorsaRepository.CreaTipologia(nomeTipologia);
+            return id != 0;
         }
     }
 }

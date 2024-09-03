@@ -15,5 +15,6 @@ namespace Traccia_04_Sikri_Twinkal.App.Abstractions.Services
         List<RisorsaDto> GetDisponibilita(int from, int num, DateOnly dataInizio, DateOnly dataFine, int? codiceRisorsa, out int totalItems);
 
         bool risorsaExists(int RisorsaId);
+        public bool CreaTipologia(string nomeTipologia, out int id);
     }
 }

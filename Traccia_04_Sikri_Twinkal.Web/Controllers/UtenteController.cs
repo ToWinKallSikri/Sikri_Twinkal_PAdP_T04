@@ -19,51 +19,28 @@ namespace Traccia_04_Sikri_Twinkal.Web.Controllers
             _utenteService = utenteService;
         }
 
-        [HttpGet]
-        [Route("Ricerca Utente tramite ID/{id:int}")]
-        public IActionResult GetUtenteById(int id)
-        {
-            var utente = _utenteService.GetUtenteById(id);
-
-            if (utente == null)
-            {
-                return NotFound(new { Message = "Utente non trovato." });
-            }
-
-            var utenteDto = new UtenteDto(utente);
-            return Ok(ResponseFactory.WithSuccess(utenteDto));
-        }
-
         [HttpPost]
-        [Route("Lista Utenti")]
-        public IActionResult GetUtenti(GetUtenteRequest request)
+        [Route("Signin")]
+        public IActionResult Create(CreateTokenRequest request)
         {
-            if (request.PageSize <= 0)
+            bool result = _utenteService.CreateToken(request, out string token);
+            if (result)
             {
-                return BadRequest("Il campo Page Size non può essere 0");
-            }
-
-            int totalNum = 0;
-            var utenti = _utenteService.GetUtenti(request.PageNumber * request.PageSize, request.PageSize, request.Name, out totalNum);
-            if (!utenti.Any())
-            {
-                return Ok(new { Message = "Nessun utente trovato" });
-            }
-
-            var response = new GetUtenteResponse();
-            var pageFounded = (totalNum / (decimal)request.PageSize);
-            response.PageNumber = (int)Math.Ceiling(pageFounded);
-            response.Utenti = utenti.Select(s =>
-            new App.Models.Dtos.UtenteDto(s)).ToList();
-
-            return Ok(ResponseFactory
-                .WithSuccess(response)
+                return Ok(
+                ResponseFactory.WithSuccess(
+                    new CreateTokenResponse(token)
+                    )
                 );
+            }
+            else
+            {
+                return BadRequest();
+            }
 
         }
 
         [HttpPost]
-        [Route("Creazione senza validazione")]
+        [Route("CreaUtente")]
         public IActionResult CreateUtente(CreateUtenteRequest request)
         {
             var utente = request.ToEntity();

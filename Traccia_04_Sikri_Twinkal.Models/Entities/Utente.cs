@@ -12,7 +12,7 @@ namespace Traccia_04_Sikri_Twinkal.Models.Entities
         public string Cognome { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
-        public virtual IEnumerable<Prenotazione> Prenotazioni { get; set; } = null!;
+        public virtual IEnumerable<Prenotazione> Prenotazioni { get; set; } = [];
     }
 
 }

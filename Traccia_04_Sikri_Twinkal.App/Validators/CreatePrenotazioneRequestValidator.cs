@@ -20,9 +20,9 @@ namespace Traccia_04_Sikri_Twinkal.App.Validators
 
             RuleFor(x => x)
             .Must(req =>
-                myDbContext.Prenotazioni.Any(x => x.RisorsaId == req.RisorsaId
-                                               && x.DataInizio >= req.DataInizio
-                                               && x.DataFine <= req.DataFine)
+                !myDbContext.Prenotazioni.Any(x => x.RisorsaId == req.RisorsaId
+                                               && x.DataFine > req.DataInizio
+                                               && x.DataInizio < req.DataFine)
                 )
                 .WithMessage("La risorsa non è disponibile per le date selezionate.");
 

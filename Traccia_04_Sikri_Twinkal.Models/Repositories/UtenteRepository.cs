@@ -30,7 +30,7 @@ namespace Traccia_04_Sikri_Twinkal.Models.Repositories
             return utente != null && utente.Password == password;
         }
 
-        private Utente? DaEmail(string email)
+        public Utente? DaEmail(string email)
         {
             return _ctx.Utenti.FirstOrDefault(u => u.Email == email);
         }

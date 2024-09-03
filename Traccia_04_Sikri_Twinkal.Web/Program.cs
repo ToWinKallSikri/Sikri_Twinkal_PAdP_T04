@@ -1,3 +1,9 @@
+using Traccia_04_Sikri_Twinkal.Web.Extensions;
+using Traccia_04_Sikri_Twinkal.App.Extensions;
+using Traccia_04_Sikri_Twinkal.Models.Extensions;
+using Traccia_04_Sikri_Twinkal.Models.Context;
+using Microsoft.EntityFrameworkCore;
+
 namespace Traccia_04_Sikri_Twinkal
 {
     public class Program
@@ -8,20 +14,27 @@ namespace Traccia_04_Sikri_Twinkal
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.
+                AddWebServices(builder.Configuration).
+                AddApplicationServices(builder.Configuration).
+                AddModelServices(builder.Configuration);
+
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
 
-            app.UseHttpsRedirection();
+            app.AddWebMiddleware()
+               .AddApplicationMiddleware();
 
-            app.UseAuthorization();
-
-
-            app.MapControllers();
+            using (var scope = app.Services.CreateScope())
+            {
+                var db = (ServizioDiPrenotazioneContext)scope.ServiceProvider.GetService(typeof(ServizioDiPrenotazioneContext));
+                db.Database.Migrate();
+            }
 
             app.Run();
+
         }
     }
 }

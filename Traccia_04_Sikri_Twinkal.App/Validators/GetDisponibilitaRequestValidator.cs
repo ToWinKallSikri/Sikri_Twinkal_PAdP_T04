@@ -35,7 +35,7 @@ namespace Traccia_04_Sikri_Twinkal.App.Validators
 
         public bool DataAccettabile(DateOnly? data)
         {
-            return data != null && data >= DateOnly.FromDateTime(DateTime.Now);
+            return data != null;
         }
 
         public bool RisorsaDisponibile(GetDisponibilitaRequest req, ServizioDiPrenotazioneContext dbContext)

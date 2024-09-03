@@ -49,5 +49,15 @@ namespace Traccia_04_Sikri_Twinkal.Models.Repositories
                 .Take(num)
                 .ToList();
         }
+
+        public int CreaTipologia(string nomeTipologia)
+        {
+            if (_ctx.TipologiaRisorsa.Any(x => x.Nome == nomeTipologia))
+                return 0;
+            var tipologia = new TipologiaRisorsa { Nome = nomeTipologia };
+            _ctx.TipologiaRisorsa.Add(tipologia);
+            _ctx.SaveChanges();
+            return tipologia.TipologiaRisorsaId;
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace Traccia_04_Sikri_Twinkal.Models.Configurations
         {
             builder.ToTable("Risorse");
             builder.HasKey(r => r.RisorsaId);
+            builder.HasOne(t => t.TipologiaRisorsa).WithMany(r => r.Risorse).HasForeignKey(r => r.TipologiaRisorsaId);
         }
     }
 }

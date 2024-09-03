@@ -10,6 +10,6 @@ namespace Traccia_04_Sikri_Twinkal.Models.Entities
     {
         public int TipologiaRisorsaId { get; set; }
         public string Nome { get; set; } = string.Empty;
-        public virtual IEnumerable<Risorsa> Risorse { get; set; } = null!;
+        public virtual IEnumerable<Risorsa> Risorse { get; set; } = [];
     }
 }

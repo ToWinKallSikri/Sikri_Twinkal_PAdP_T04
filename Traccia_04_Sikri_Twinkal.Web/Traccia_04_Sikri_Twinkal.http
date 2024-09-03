@@ -1,6 +1,6 @@
 @Traccia_04_Sikri_Twinkal_HostAddress = http://localhost:5227
 
-GET {{Traccia_04_Sikri_Twinkal_HostAddress}}/weatherforecast/
+GET {{Traccia_04_Sikri_Twinkal_HostAddress}}/swagger/
 Accept: application/json
 
 ###

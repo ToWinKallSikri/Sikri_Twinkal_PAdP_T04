@@ -14,25 +14,6 @@ namespace Traccia_04_Sikri_Twinkal.App.Validators
                 .NotNull().WithMessage("Nome obbligatorio")
                 .MinimumLength(3).WithMessage("Nome troppo corto")
                 .MaximumLength(50).WithMessage("Nome troppo lungo");
-
-            RuleFor(x => x.Tipologia)
-                .NotNull().WithMessage("Dichiarare tipologia")
-                .MinimumLength(4).WithMessage("Il minimo è 4 caratteri")
-                .MaximumLength(20).WithMessage("Limite caratteri raggiunto");
-             
-            RuleFor(x => x.IdRisorsa)
-               .NotNull().WithMessage("Id Risorsa obbligatorio")
-               .GreaterThan(0).WithMessage("Id Risorsa deve essere maggiore di 0");
-
-            RuleFor(x => x)
-                .Must(x => !RisorsaEsistente(x))
-                .WithMessage("Risorsa già esistente");
-
-        }
-
-        private bool RisorsaEsistente(CreateRisorsaRequest req)
-        {
-            return _dbContext.Risorse.Any(x => x.RisorsaId == req.IdRisorsa);
         }
     }
 }

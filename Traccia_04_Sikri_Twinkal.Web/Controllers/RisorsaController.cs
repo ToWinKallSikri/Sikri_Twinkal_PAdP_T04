@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Azure;
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,39 +25,23 @@ namespace Traccia_04_Sikri_Twinkal.Web.Controllers
             _validator = validator;
         }
 
-
-        [HttpGet]
-        [Route("Ricera tramite ID/{id:int}")]
-        public IActionResult GetRisorsa(int id)
+        [HttpPost]
+        [Route("NuovaTipologia")]
+        public IActionResult CreaTipologia(string nomeTipologia)
         {
-            var risorsa = _risorsaService.GetRisorsa(id);
-
-            if (risorsa == null)
+            if (_risorsaService.CreaTipologia(nomeTipologia, out int id)) 
             {
-                return NotFound("Risorsa non trovata");
+                return Ok(ResponseFactory.WithSuccess(id));
             }
-            
-            var risorsaDto = new RisorsaDto(risorsa);
-            return Ok(risorsaDto);
+            else
+            {
+                return BadRequest("Nome tipologia vuoto o già presente");
+            }
         }
 
-        [HttpPost]
-        [Route("Lista Risorse")]
-        public IActionResult GetRisorse([FromQuery] GetRisorsaRequest request)
-        {
-            if (request.PageSize <= 0)
-            {
-                return BadRequest("Il campo Page Size non può essere 0");
-            }
-            int totalNum = 0;
-            var risorse = _risorsaService.GetRisorse(request.PageSize, request.PageNumber, request.RisorsaId, out totalNum);
-            return Ok(new {risorse, totalNum});
-
-
-        }
 
         [HttpPost]
-        [Route("Creazione con validazione")]
+        [Route("Crea")]
         public IActionResult CreateRisorsa(CreateRisorsaRequest request)
         {
             var validationResult = _validator.Validate(request);
@@ -77,7 +62,7 @@ namespace Traccia_04_Sikri_Twinkal.Web.Controllers
         }
 
         [HttpPost]
-        [Route("Ricerca disponibilità con validazione")]
+        [Route("CercaDisponibilita")]
         public IActionResult GetDisponibilita(GetDisponibilitaRequest request)
         {
             if (request.PageSize <= 0)
@@ -85,14 +70,13 @@ namespace Traccia_04_Sikri_Twinkal.Web.Controllers
                 return BadRequest("Il campo Page Size non può essere 0");
             }
 
-            int totalItems;
             var disponibilita = _risorsaService.GetDisponibilita(
-                (request.PageNumber - 1) * request.PageSize,
+                request.PageNumber * request.PageSize,
                 request.PageSize,
                 request.DataInizio,
                 request.DataFine,
                 request.RisorsaId,
-                out totalItems);
+                out int totalItems);
 
             var totalPages = (int)Math.Ceiling((double)totalItems / request.PageSize);
 
@@ -100,8 +84,9 @@ namespace Traccia_04_Sikri_Twinkal.Web.Controllers
             var response = new
             {
                 Risorse = disponibilita,
-                TotalPages = totalPages,
-                TotalItems = totalItems
+                PagineTotali = totalPages,
+                PaginaCorrente = request.PageNumber,
+                TotaleRisorse = totalItems
             };
 
             return Ok(ResponseFactory.WithSuccess(response));

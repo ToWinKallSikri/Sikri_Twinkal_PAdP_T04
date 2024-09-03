@@ -19,7 +19,7 @@ namespace Traccia_04_Sikri_Twinkal.Models.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         { 
-            optionsBuilder.UseInMemoryDatabase("data source=localhost;Initial catalog=pap_tr04;User Id=foo;Password=bar;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer(@"data source=TWINFOREX-V2; Initial Catalog=BookingContext;Integrated Security=True;TrustServerCertificate=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -27,11 +27,6 @@ namespace Traccia_04_Sikri_Twinkal.Models.Context
             modelBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
             base.OnModelCreating(modelBuilder);
         }
-
-
-
-
-
 
 
     }
