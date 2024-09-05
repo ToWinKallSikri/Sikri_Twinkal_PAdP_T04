@@ -19,7 +19,7 @@ namespace Traccia_04_Sikri_Twinkal.Models.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         { 
-            optionsBuilder.UseSqlServer(@"data source=TWINFOREX-V2; Initial Catalog=BookingContext;Integrated Security=True;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer(@"data source=TWINFOREX; Initial Catalog=BookingContext;Integrated Security=True;TrustServerCertificate=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
