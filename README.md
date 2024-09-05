@@ -27,4 +27,5 @@ Le api che dovranno essere realizzate sono le seguenti :
    
    La ricerca dovrà paginare i risultanti, in base ad un parametro passato nella chiamata
 
-
+# How to
+ Una volta clonata la repository, modificare la stringa di connessione con il database SQL locale.
