@@ -28,7 +28,7 @@ Le api che dovranno essere realizzate sono le seguenti :
    La ricerca dovrà paginare i risultanti, in base ad un parametro passato nella chiamata
 
 # How to
- Clonata la repository, aprire la soluzione sul proprio IDE e modificare la stringa di connessione per interfacciarsi con il database SQL locale. (l'ideale sarebbe aprire la SOLUZIONE, il file .sln, tramite Visual Studio)
+ Clonata la repository, aprire la directory sul proprio IDE e modificare la stringa di connessione per interfacciarsi con il database SQL locale. L'ideale sarebbe aprire la SOLUZIONE (il file .sln) tramite Visual Studio, oppure, se si vuole, clonare la repo direttamente da lì.
 
  **Stringhe di connessione**                                        
  **Path 1**: Traccia_04_Sikri_Twinkal.Models -> Traccia_04_Sikri_Twinkal.Models.Context -> ServizioDiPrenotazioneContext.cs (file da editare)
