@@ -27,10 +27,10 @@ Le api che dovranno essere realizzate sono le seguenti :
    
    La ricerca dovrà paginare i risultanti, in base ad un parametro passato nella chiamata
 
-# How to
+## How to
  Clonata la repository, aprire la directory sul proprio IDE e modificare la stringa di connessione per interfacciarsi con il database SQL locale. L'ideale sarebbe aprire la SOLUZIONE (il file .sln) tramite Visual Studio, oppure, se si vuole, clonare la repo direttamente da lì.
 
- **Stringhe di connessione**                                        
+ ### Stringhe di connessione                                       
  **Path 1**: Traccia_04_Sikri_Twinkal.Models -> Traccia_04_Sikri_Twinkal.Models.Context -> ServizioDiPrenotazioneContext.cs (file da editare)
   
   ![](Immagini/p1.png)
@@ -43,7 +43,7 @@ Le api che dovranno essere realizzate sono le seguenti :
  
  Verficare che venga visualizzata in locale l'interfaccia di Swagger, per fare successivamente le prove del caso.
 
- **Operazioni**                                                                
+ ### Operazioni                                                             
   Visualizzato correttamente Swagger, si possono fare le varie operazioni richieste dalla traccia:
   - Creazione di un utente (anonima senza autenticazione)
   - Autenticazione (SignIn -> Rilascio token -> Autenticazione tramite l'interfaccia di Swagger, con Bearer JWT)
@@ -52,7 +52,7 @@ Le api che dovranno essere realizzate sono le seguenti :
   - Prenotazione di una risorsa da data a data (Solo se autorizzati)
   - Ricerca delle disponibilità (Solo se autorizzati)
 
-
+In caso di necessità è presente una cartella con il dump del DB utilizzato. (DumpSSMS - BookingContext/ScriptDump.sql)
 
 
  
