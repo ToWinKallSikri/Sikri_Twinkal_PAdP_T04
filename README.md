@@ -39,10 +39,11 @@ Le api che dovranno essere realizzate sono le seguenti :
   
   ![](Immagini/p2.png)
 
- Una volta fatto questo, avviare il Program.cs, presente nella directory Traccia_04_Sikri_Twinkal.Web, che avvierà Swagger in localhost e avverrà la creazione del database "BookingContext" nel server locale, designato e registrato nei file citati precedentemente.
+ Una volta fatto questo, avviare il Program.cs, presente nella directory Traccia_04_Sikri_Twinkal.Web, che avvierà Swagger in localhost e avverrà la creazione del database "BookingContext" nel server locale, designato e registrato nei file citati precedentemente. 
+ 
  Verficare che venga visualizzata in locale l'interfaccia di Swagger, per fare successivamente le prove del caso.
 
- **Step da fare**
+ **Operazioni**                                                                
   Visualizzato correttamente Swagger, si possono fare le varie operazioni richieste dalla traccia:
   - Creazione di un utente (anonima senza autenticazione)
   - Autenticazione (SignIn -> Rilascio token -> Autenticazione tramite l'interfaccia di Swagger, con Bearer JWT)
@@ -51,7 +52,6 @@ Le api che dovranno essere realizzate sono le seguenti :
   - Prenotazione di una risorsa da data a data (Solo se autorizzati)
   - Ricerca delle disponibilità (Solo se autorizzati)
 
-Una volta seguiti questi step, si possono fare tutte le prove necessarie.
 
 
 
