@@ -31,15 +31,15 @@ Le api che dovranno essere realizzate sono le seguenti :
  Clonata la repository, aprire la directory sul proprio IDE e modificare la stringa di connessione per interfacciarsi con il database SQL locale. L'ideale sarebbe aprire la SOLUZIONE (il file .sln) tramite Visual Studio, oppure, se si vuole, clonare la repo direttamente da lì.
 
  ### Stringhe di connessione                                       
- **Path 1**: Traccia_04_Sikri_Twinkal.Models -> Traccia_04_Sikri_Twinkal.Models.Context -> ServizioDiPrenotazioneContext.cs (file da editare)
+ **Path 1**: Traccia_04_Sikri_Twinkal.Models -> Traccia_04_Sikri_Twinkal.Models.Context -> `ServizioDiPrenotazioneContext.cs` (file da editare)
   
   ![](Immagini/p1.png)
   
-  **Path 2**: Traccia_04_Sikri_Twinkal.Web -> appsettings.js (file da editare)
+  **Path 2**: Traccia_04_Sikri_Twinkal.Web -> `appsettings.js` (file da editare)
   
   ![](Immagini/p2.png)
 
- Una volta fatto questo, avviare il Program.cs, presente nella directory Traccia_04_Sikri_Twinkal.Web, che avvierà Swagger in localhost e avverrà la creazione del database "BookingContext" nel server locale, designato e registrato nei file citati precedentemente. 
+ Una volta fatto questo, avviare il `Program.cs`, presente nella directory Traccia_04_Sikri_Twinkal.Web, che avvierà Swagger in localhost e avverrà la creazione del database "`BookingContext`" nel server locale, designato e registrato nei file citati precedentemente. 
  
  Verficare che venga visualizzata in locale l'interfaccia di Swagger, per fare successivamente le prove del caso.
 
@@ -52,7 +52,7 @@ Le api che dovranno essere realizzate sono le seguenti :
   - Prenotazione di una risorsa da data a data (Solo se autorizzati)
   - Ricerca delle disponibilità (Solo se autorizzati)
 
-In caso di necessità è presente una cartella con il dump del DB utilizzato. (DumpSSMS - BookingContext/ScriptDump.sql)
+In caso di necessità è presente una cartella contenente il dump del DB utilizzato. (DumpSSMS - BookingContext/`ScriptDump.sql`)
 
 
  
