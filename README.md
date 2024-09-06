@@ -28,4 +28,31 @@ Le api che dovranno essere realizzate sono le seguenti :
    La ricerca dovrà paginare i risultanti, in base ad un parametro passato nella chiamata
 
 # How to
- Una volta clonata la repository, modificare la stringa di connessione con il database SQL locale.
+ Clonata la repository, aprire la soluzione sul proprio IDE e modificare la stringa di connessione per interfacciarsi con il database SQL locale. (l'ideale sarebbe aprire la SOLUZIONE, il file .sln, tramite Visual Studio)
+
+ **Stringhe di connessione**                                        
+ **Path 1**: Traccia_04_Sikri_Twinkal.Models -> Traccia_04_Sikri_Twinkal.Models.Context -> ServizioDiPrenotazioneContext.cs (file da editare)
+  
+  ![](Immagini/p1.png)
+  
+  **Path 2**: Traccia_04_Sikri_Twinkal.Web -> appsettings.js (file da editare)
+  
+  ![](Immagini/p2.png)
+
+ Una volta fatto questo, avviare il Program.cs, presente nella directory Traccia_04_Sikri_Twinkal.Web, che avvierà Swagger in localhost e avverrà la creazione del database "BookingContext" nel server locale, designato e registrato nei file citati precedentemente.
+ Verficare che venga visualizzata in locale l'interfaccia di Swagger, per fare successivamente le prove del caso.
+
+ **Step da fare**
+  Visualizzato correttamente Swagger, si possono fare le varie operazioni richieste dalla traccia:
+  - Creazione di un utente (anonima senza autenticazione)
+  - Autenticazione (SignIn -> Rilascio token -> Autenticazione tramite l'interfaccia di Swagger, con Bearer JWT)
+  - Creazione di una tipolgia di risorsa (Solo se autorizzati, da fare prima di creare una risorsa della tipologia desiderata, altrimenti non si avrebbe l'id della tipologia di risorsa di riferimento)
+  - Creazione di una risorsa (Solo se autorizzati)
+  - Prenotazione di una risorsa da data a data (Solo se autorizzati)
+  - Ricerca delle disponibilità (Solo se autorizzati)
+
+Una volta seguiti questi step, si possono fare tutte le prove necessarie.
+
+
+
+ 
