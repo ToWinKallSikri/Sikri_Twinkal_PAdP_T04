@@ -30,12 +30,8 @@ Le api che dovranno essere realizzate sono le seguenti :
 ## How to
  Clonata la repository, aprire la directory sul proprio IDE e modificare la stringa di connessione per interfacciarsi con il database SQL locale. L'ideale sarebbe aprire la SOLUZIONE (il file .sln) tramite Visual Studio, oppure, se si vuole, clonare la repo direttamente da lì.
 
- ### Stringhe di connessione                                       
- **Path 1**: Traccia_04_Sikri_Twinkal.Models -> Traccia_04_Sikri_Twinkal.Models.Context -> `ServizioDiPrenotazioneContext.cs` (file da editare)
-  
-  ![](Immagini/p1.png)
-  
-  **Path 2**: Traccia_04_Sikri_Twinkal.Web -> `appsettings.js` (file da editare)
+ ### Stringhe di connessione  
+  **Path**: Traccia_04_Sikri_Twinkal.Web -> `appsettings.js` (file da editare)
   
   ![](Immagini/p2.png)
 
