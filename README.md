@@ -48,7 +48,7 @@ Le api che dovranno essere realizzate sono le seguenti :
   - Prenotazione di una risorsa da data a data (Solo se autorizzati)
   - Ricerca delle disponibilità (Solo se autorizzati)
 
-In caso di necessità è presente una cartella contenente il dump del DB utilizzato. (DumpSSMS - BookingContext/`ScriptDump.sql`)
+In caso di necessità è presente una cartella contenente il dump del DB utilizzato. (DumpSSMS - BookingContext/`ScriptDump.sql` - `BookingContext.bak`)
 
 
  
